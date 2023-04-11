@@ -1,0 +1,84 @@
+//Q1:
+function addNumber(num1){
+    return function(num2){
+        console.log(num1 + num2)
+    }
+}
+let innerFunction = addNumber(6);
+innerFunction(10);
+
+
+//Q2:
+let numbers = [1,4,8,0,2,7];
+function searchNum(arr, val) {
+    if (arr.length === 0) {
+        return false;
+      }     
+    if (arr[0] === val) {
+      return true;
+    }
+    return searchNum(arr.slice(1), val);
+  }
+let result = searchNum(numbers, +prompt("write a number to check"));
+console.log(result);
+
+
+//Q3:
+function addParagraph(data){
+    let newPara = document.getElementById("my-para");
+    newPara.innerHTML = data;
+}
+addParagraph(prompt("Enter text"));
+
+
+//Q4:
+function addListItem(data) {
+    let ul = document.getElementById('ul');
+    let li = document.createElement('li');
+    li.innerText = data;
+    ul.appendChild(li);
+  }
+  addListItem("Apple");
+  
+  
+//Q5:
+let myPara = document.getElementById("my-para");
+myPara.innerHTML = "Hi, I am learning JavaScript."
+let color = Math.floor(Math.random()*16777215).toString(16);
+function newColor(myPara, color){
+    myPara.style.backgroundColor = "#" + color;
+}
+newColor(myPara, color);
+
+
+//Q6:
+let studentList =  [];
+function student(){
+    let std = {
+        name: "Junaid",
+        rollNo: 23,
+        subject: "JavaScript",
+    }
+    studentList.push(std);
+    console.log(studentList);
+    let stringify = JSON.stringify(studentList);
+    let locStore = localStorage.setItem("student",stringify);
+}
+student();
+
+
+//Q7:
+let prevEntry = localStorage.getItem("student");
+let studentList = prevEntry ? JSON.parse(prevEntry) : [];
+function student(){
+    let std = {
+        name: "Junaid",
+        rollNo: 23,
+        subject: "JavaScript",
+    }
+    studentList.push(std);
+    console.log(studentList);
+    let stringify = JSON.stringify(studentList);
+    let locStore = localStorage.setItem("student",stringify);
+}
+student();
